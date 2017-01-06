@@ -1,4 +1,4 @@
-#bitrix-module-base-d7
+#bitrix-module-base-d7 (lyrmin.tables)
 Модуль &ndash; основа для создания собственных модулей на 1С-Битрикс.
 На основе ядра d7.
 <b>Функции:</b>
