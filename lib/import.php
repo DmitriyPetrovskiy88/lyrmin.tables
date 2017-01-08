@@ -76,7 +76,13 @@ class ImportTable extends Entity\DataManager
                 },
                 'title' => Loc::getMessage('LYRMIN_TABLE_IMPORT_ENTITY_CREATE_DATE_FIELD'),
             )),
-            new Entity\DatetimeField('TIMESTAMP_X', array(
+            new Entity\DateTimeField('TIMESTAMP_X', array(
+                "default_value" => new Type\DateTime,
+                "validation" => function () {
+                    return array(
+                        new Entity\Validator\Date
+                    );
+                },
                 'title' => Loc::getMessage('LYRMIN_TABLE_IMPORT_ENTITY_TIMESTAMP_X_FIELD'),
             )),
             new Entity\TextField('DESCRIPTION', array(
@@ -91,7 +97,8 @@ class ImportTable extends Entity\DataManager
                 'title' => Loc::getMessage('LYRMIN_TABLE_IMPORT_ENTITY_ACTIVE_FIELD'),
             )),
             new Entity\EnumField('DESCRIPTION_TYPE', array(
-                'values' => array('html', 'text'),
+                'values' => array('text', 'html'),
+                "default_value" => 'text',
                 'title' => Loc::getMessage('LYRMIN_TABLE_IMPORT_ENTITY_DESCRIPTION_TYPE_FIELD'),
             )),
             new Entity\FloatField('QUANTITY', array(
